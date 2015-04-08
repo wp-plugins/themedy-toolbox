@@ -2,8 +2,8 @@
 Contributors: themedy, mahodder, matthodder
 Tags: shortcodes, themedy, genesis, thesis
 Requires at least: 3.9
-Tested up to: 4.0
-Stable tag: 1.0.4
+Tested up to: 4.1.1
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Please note that this plugin will work outside our <a href="http://themedy.com">
 
 == Installation ==
 
-1. Upload the `themedy-toolbox` folder to your to the `/wp-content/plugins/` directory or alternatively upload the creativ-shortcodes.zip via the plugin page of WordPress by clicking 'Add New' and select the zip from your local computer.
+1. Upload the `themedy-toolbox` folder to your to the `/wp-content/plugins/` directory or alternatively upload the themedy-toolbox.zip via the plugin page of WordPress by clicking 'Add New' and select the zip from your local computer.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to the page/post editor and you should see a new button on your toolbar (the icon is a grey button with our /// logo mark)
 4. On the popup that appears, choose which shortcode you would like to add from the left and then fill out the options on the right.
@@ -31,6 +31,16 @@ Please note that this plugin will work outside our <a href="http://themedy.com">
 1. Here's a screenshot of it in action
 
 == Changelog ==
+
+= 1.0.5 =
+* Load YouTube / Vimeo via HTTP / HTTPS depending on users site automatically.
+* Fix conflict with Contact Forms 7 plugin
+* Update Custom CSS Module
+* Upgrade Font Awesome to 4.3
+* Add all font awesome icons to select icon screen (now 519 choices!)
+* Add the ability to use Font Awesome attributes (like spin icon)
+* Add note about using double quotes in button labels
+* Misc fixes
 
 = 1.0.4 =
 * Load visual editor icon on post / pages / custom post types only to reduce conflicts with visual editors with other plugins.

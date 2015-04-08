@@ -3,7 +3,7 @@
 Plugin Name: Themedy Toolbox
 Plugin URI: http://themedy.com
 Description: Shortcodes and tools to extend your Themedy site even further.
-Version: 1.0.4
+Version: 1.0.5
 Author: Themedy
 Author URI: http://themedy.com
 */
@@ -40,7 +40,8 @@ function themedy_shortcodes_add_scripts() {
 	}
 	
 	/* Font Awesome */
-	wp_enqueue_style('fontawesomes', $ja_themedy_shortcodes_directory.'fonts/fontawesome/css/font-awesome.min.css', '4.2.0');
+	//wp_enqueue_style('fontawesomes', $ja_themedy_shortcodes_directory.'fonts/fontawesome/css/font-awesome.min.css', '4.2.0');
+	wp_enqueue_style('fontawesomes', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', '4.3.0');
 	wp_enqueue_style('fontello', $ja_themedy_shortcodes_directory.'fonts/fontello/css/fontello.css');
 	
 }
@@ -51,7 +52,7 @@ function toolbox_admin_specific_enqueue($hook_suffix) {
 	$ja_themedy_shortcodes_directory = isset($ja_themedy_shortcodes_directory);
 
    if( 'post.php' == $hook_suffix || 'post-new.php' == $hook_suffix ) {
-	wp_enqueue_script('themedy-editor-plugin', $ja_themedy_shortcodes_directory . 'includes/tinymce_button.js');
+	wp_enqueue_script('themedy-editor-plugin', plugin_dir_url( __FILE__ ) . 'includes/tinymce_button.js');
 	 /* Fix wp-content directory renamed issue */
 	wp_localize_script('themedy-editor-plugin', 'themedy_editor_plugin_vars', array(
 			'tbicon' => __(plugin_dir_url( __FILE__ ) . 'images/toolbar-icon.png'), 'themedy'));

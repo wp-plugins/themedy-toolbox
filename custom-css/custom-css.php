@@ -1,8 +1,14 @@
 <?php
- /*
- * Version: 3.2
+/*
+ * Plugin Name: JP Custom CSS
+ * Plugin URI: http://wordpress.org/plugins/jp-custom-css/
+ * Description: Customize your site’s CSS without modifying your theme.
+ * Author: JP Bot
+ * Version: 3.4.1
  * Text Domain: jetpack
  * Domain Path: /languages/
+ * License: GPL2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 /**

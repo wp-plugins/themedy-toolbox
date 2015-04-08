@@ -71,6 +71,18 @@ class Jetpack_Custom_CSS {
 			do_action( 'safecss_migrate_post' );
 		}
 
+		/**
+		 * Never embed the style in the head on wpcom.
+		 * Yes, this filter should be added to an unsynced file on wpcom, but
+		 * there is no good syntactically-correct location to put it yet.
+		 * @link https://github.com/Automattic/jetpack/commit/a1be114e9179f64d147124727a58e2cf76c7e5a1#commitcomment-7763921
+		 */
+		if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
+			add_filter( 'safecss_embed_style', '__return_false' );
+		} else {
+			add_filter( 'safecss_embed_style', array( 'Jetpack_Custom_CSS', 'should_we_inline_custom_css' ), 10, 2 );
+		}
+
 		add_action( 'wp_head', array( 'Jetpack_Custom_CSS', 'link_tag' ), 101 );
 
 		add_filter( 'jetpack_content_width', array( 'Jetpack_Custom_CSS', 'jetpack_content_width' ) );
@@ -464,7 +476,7 @@ class Jetpack_Custom_CSS {
 			return;
 		}
 
-		$GLOBALS['content_width'] = Jetpack::get_content_width();
+		$GLOBALS['content_width'] = Jetpack_Custom::get_content_width();
 	}
 
 	/*
@@ -536,6 +548,15 @@ class Jetpack_Custom_CSS {
 		return $css;
 	}
 
+	static function replace_insecure_urls( $css ) {
+		if ( ! function_exists( '_sa_get_frontend_https_url_replacement_map' ) ) {
+			return $css;
+		}
+		list( $http_urls, $secure_urls ) = _sa_get_frontend_https_url_replacement_map();
+
+		return str_replace( $http_urls, $secure_urls, $css );
+	}
+
 	static function print_css() {
 		
 		/**
@@ -545,8 +566,13 @@ class Jetpack_Custom_CSS {
 		 * @module Custom_CSS
 		 **/
 		do_action( 'safecss_print_pre' );
+		$css = Jetpack_Custom_CSS::get_css( true );
+		echo self::replace_insecure_urls( $css );
+	}
 
-		echo Jetpack_Custom_CSS::get_css( true );
+	static function should_we_inline_custom_css( $should_we, $css ) {
+		// If the CSS is less than 2,000 characters, inline it! otherwise return what was passed in.
+		return ( strlen( $css ) < 2000 ) ? true : $should_we;
 	}
 
 	static function link_tag() {
@@ -601,20 +627,28 @@ class Jetpack_Custom_CSS {
 		if ( $css == '' )
 			return;
 
-		$href = home_url( '/' );
-		$href = add_query_arg( 'custom-css', 1, $href );
-		$href = add_query_arg( 'csblog', $blog_id, $href );
-		$href = add_query_arg( 'cscache', 6, $href );
-		$href = add_query_arg( 'csrev', (int) get_option( $option . '_rev' ), $href );
+		if ( apply_filters( 'safecss_embed_style', false, $css ) ) {
 
-		$href = apply_filters( 'safecss_href', $href, $blog_id );
+			echo "\r\n" . '<style id="custom-css-css">' . Jetpack_Custom_CSS::get_css( true ) . "</style>\r\n";
 
-		if ( Jetpack_Custom_CSS::is_preview() )
-			$href = add_query_arg( 'csspreview', 'true', $href );
+		} else {
 
-		?>
-		<link rel="stylesheet" id="custom-css-css" type="text/css" href="<?php echo esc_url( $href ); ?>" />
-		<?php
+			$href = home_url( '/' );
+			$href = add_query_arg( 'custom-css', 1, $href );
+			$href = add_query_arg( 'csblog', $blog_id, $href );
+			$href = add_query_arg( 'cscache', 6, $href );
+			$href = add_query_arg( 'csrev', (int) get_option( $option . '_rev' ), $href );
+
+			$href = apply_filters( 'safecss_href', $href, $blog_id );
+
+			if ( Jetpack_Custom_CSS::is_preview() )
+				$href = add_query_arg( 'csspreview', 'true', $href );
+
+			?>
+			<link rel="stylesheet" id="custom-css-css" type="text/css" href="<?php echo esc_url( $href ); ?>" />
+			<?php
+
+		}
 
 		/**
 		 * Fires after creating the <link> in the <head> element
@@ -809,7 +843,7 @@ class Jetpack_Custom_CSS {
 
 		?>
 		<div class="misc-pub-section">
-			<label><?php esc_html_e( 'Content Width:', 'jetpack' ); ?></label>
+			<label><?php esc_html_e( 'Media Width:', 'jetpack' ); ?></label>
 			<span id="content-width-display" data-default-text="<?php esc_attr_e( 'Default', 'jetpack' ); ?>" data-custom-text="<?php esc_attr_e( '%s px', 'jetpack' ); ?>"><?php echo $custom_content_width ? sprintf( esc_html__( '%s px', 'jetpack' ), $custom_content_width ) : esc_html_e( 'Default', 'jetpack' ); ?></span>
 			<a class="edit-content-width hide-if-no-js" href="#content-width"><?php echo esc_html_e( 'Edit', 'jetpack' ); ?></a>
 			<div id="content-width-select" class="hide-if-js">
@@ -1273,7 +1307,7 @@ class Jetpack_Custom_CSS {
 		list( $width, $height ) = $dims;
 
 		if ( 'large' == $size && 'edit' == $context )
-			$width = Jetpack::get_content_width();
+			$width = Jetpack_Custom::get_content_width();
 
 		return array( $width, $height );
 	}

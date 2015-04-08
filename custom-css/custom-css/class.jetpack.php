@@ -1,6 +1,6 @@
 <?php
 
-class Jetpack {
+class Jetpack_Custom {
 	/**
 	 * Get $content_width, but with a <s>twist</s> filter.
 	 */

@@ -8,6 +8,7 @@ function themedy_shortcodes_button($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'url' => '', 
 		'icon' => '',
+		'font_awesome_att' => '',
 		'label' => '', 
 		'colour' => '', 
 		'colour_custom' => '', 
@@ -15,6 +16,8 @@ function themedy_shortcodes_button($atts, $content = null) {
 		'edge' => 'straight', 
 		'target' => '_self'
 	), $atts));
+
+	echo $label;
 	
 	/* Return Button */
 	$button_style = "";
@@ -22,7 +25,7 @@ function themedy_shortcodes_button($atts, $content = null) {
 		$button_style = ' style="background-color: '.$colour_custom.'"';
 	}
 	if($icon) {
-		$icon = '<i class="fa-icon-'.$icon.'"></i>&nbsp;&nbsp;';
+		$icon = '<i class="fa '.$font_awesome_att.' fa-'.$icon.'"></i>&nbsp;&nbsp;';
 	}
 	return '<a href="'.$url.'" class="themedy-shortcode themedy-shortcode-button themedy-shortcode-button-colour-'.$colour.' themedy-shortcode-button-size-'.$size.' themedy-shortcode-button-edge-'.$edge.'" target="'.$target.'"'.$button_style.'>'.$icon.$label.'</a>';
 	
@@ -136,7 +139,7 @@ function themedy_shortcodes_media($atts, $content = null) {
 		} else {
 			$youtube_id = $url;
 		}
-		$media_code = '<div class="themedy-shortcode themedy-shortcode-video-embed"><iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$youtube_id.'" frameborder="0" allowfullscreen></iframe></div>'; 
+		$media_code = '<div class="themedy-shortcode themedy-shortcode-video-embed"><iframe width="'.$width.'" height="'.$height.'" src="//www.youtube.com/embed/'.$youtube_id.'" frameborder="0" allowfullscreen></iframe></div>'; 
 		
 	} else if($type == "vimeo") {
 	
@@ -147,7 +150,7 @@ function themedy_shortcodes_media($atts, $content = null) {
 		} else {
 			$vimeo_id = $url;
 		}
-		$media_code = '<div class="themedy-shortcode themedy-shortcode-video-embed"><iframe src="http://player.vimeo.com/video/'.$vimeo_id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>'; 
+		$media_code = '<div class="themedy-shortcode themedy-shortcode-video-embed"><iframe src="//player.vimeo.com/video/'.$vimeo_id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>'; 
 	
 	}
 	
@@ -167,15 +170,16 @@ function themedy_shortcodes_toggle($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'heading' => '',
 		'icon' => '',
+		'font_awesome_att' => '',
 		'accordion' => '',
 		'onload' => 'closed'
 	), $atts));
 	if($onload == "open") { $active_class = "themedy-shortcode-toggle-active"; } else { $active_class = ""; }
-	if($icon) { $icon_code = '<i class="fa-icon-'.$icon.'"></i>'; } else { $icon_code = ''; }
+	if($icon) { $icon_code = '<i class="fa '.$font_awesome_att.' fa-'.$icon.'"></i>'; } else { $icon_code = ''; }
 	if($accordion == 1) {
-		$toggle_icons = '<i class="toggle-down fa-icon-plus"></i><i class="toggle-up fa-icon-minus"></i>';
+		$toggle_icons = '<i class="toggle-down fa fa-plus"></i><i class="toggle-up fa fa-minus"></i>';
 	} else {
-		$toggle_icons = '<i class="toggle-down fa-icon-caret-down"></i><i class="toggle-up fa-icon-caret-up"></i>';
+		$toggle_icons = '<i class="toggle-down fa fa-caret-down"></i><i class="toggle-up fa fa-caret-up"></i>';
 	}
 	
 	return '<div class="themedy-shortcode themedy-shortcode-toggle '.$active_class.'"><h3 class="themedy-shortcode themedy-shortcode-toggle-heading">'.$icon_code.$heading.$toggle_icons.'</h3><div class="themedy-shortcode themedy-shortcode-toggle-content"><p>'.do_shortcode($content).'</p></div></div>';
@@ -315,15 +319,16 @@ function themedy_shortcodes_alertbox($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'icon' => '',
 		'colour' => '', 
-		'colour_custom' => ''
+		'font_awesome_att' => '',
+		'custom_colour' => ''
 	), $atts));
 	
 	
 	$alertbox_style = "";
-	if($colour_custom) {
-		$alertbox_style = ' style="background-color: '.$colour_custom.'"';
+	if($custom_colour) {
+		$alertbox_style = ' style="background-color: '.$custom_colour.'"';
 	}
-	if($icon) { $icon_code = '<i class="fa-icon-'.$icon.'"></i>'; } else { $icon_code = ''; }
+	if($icon) { $icon_code = '<i class="fa '.$font_awesome_att.'fa-'.$icon.'"></i>'; } else { $icon_code = ''; }
 	
 	return '<div class="themedy-shortcode themedy-shortcode-alertbox themedy-shortcode-alertbox-colour-'.$colour.'"'.$alertbox_style.'><p class="themedy-shortcode themedy-shortcode-alertbox-content">'.$icon_code.do_shortcode($content).'</p></div>';
 
