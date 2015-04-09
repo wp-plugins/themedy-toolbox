@@ -1,5 +1,154 @@
 <?php
 
+function check_old_fa($icon) {
+	if ($icon == "ban-circle"){$icon = "ban";}
+	if ($icon == "bar-chart"){$icon = "bar-chart-o";}
+	if ($icon == "beaker"){$icon = "flask";}
+	if ($icon == "bell"){$icon = "bell-o";}
+	if ($icon == "bell-alt"){$icon = "bell";}
+	if ($icon == "bitbucket-sign"){$icon = "bitbucket-square";}
+	if ($icon == "bookmark-empty"){$icon = "bookmark-o";}
+	if ($icon == "building"){$icon = "building-o";}
+	if ($icon == "calendar-empty"){$icon = "calendar-o";}
+	if ($icon == "check-empty"){$icon = "square-o";}
+	if ($icon == "check-minus"){$icon = "minus-square-o";}
+	if ($icon == "check-sign"){$icon = "check-square";}
+	if ($icon == "check"){$icon = "check-square-o";}
+	if ($icon == "chevron-sign-down"){$icon = "chevron-down";}
+	if ($icon == "chevron-sign-left"){$icon = "chevron-left";}
+	if ($icon == "chevron-sign-right"){$icon = "chevron-right";}
+	if ($icon == "chevron-sign-up"){$icon = "chevron-up";}
+	if ($icon == "circle-arrow-down"){$icon = "arrow-circle-down";}
+	if ($icon == "circle-arrow-left"){$icon = "arrow-circle-left";}
+	if ($icon == "circle-arrow-right"){$icon = "arrow-circle-right";}
+	if ($icon == "circle-arrow-up"){$icon = "arrow-circle-up";}
+	if ($icon == "circle-blank"){$icon = "circle-o";}
+	if ($icon == "cny"){$icon = "rmb";}
+	if ($icon == "collapse-alt"){$icon = "minus-square-o";}
+	if ($icon == "collapse-top"){$icon = "caret-square-o-up";}
+	if ($icon == "collapse"){$icon = "caret-square-o-down";}
+	if ($icon == "comment-alt"){$icon = "comment-o";}
+	if ($icon == "comments-alt"){$icon = "comments-o";}
+	if ($icon == "copy"){$icon = "files-o";}
+	if ($icon == "cut"){$icon = "scissors";}
+	if ($icon == "dashboard"){$icon = "tachometer";}
+	if ($icon == "double-angle-down"){$icon = "angle-double-down";}
+	if ($icon == "double-angle-left"){$icon = "angle-double-left";}
+	if ($icon == "double-angle-right"){$icon = "angle-double-right";}
+	if ($icon == "double-angle-up"){$icon = "angle-double-up";}
+	if ($icon == "download"){$icon = "arrow-circle-o-down";}
+	if ($icon == "download-alt"){$icon = "download";}
+	if ($icon == "edit-sign"){$icon = "pencil-square";}
+	if ($icon == "edit"){$icon = "pencil-square-o";}
+	if ($icon == "ellipsis-horizontal"){$icon = "ellipsis-h";}
+	if ($icon == "ellipsis-vertical"){$icon = "ellipsis-v";}
+	if ($icon == "envelope-alt"){$icon = "envelope-o";}
+	if ($icon == "exclamation-sign"){$icon = "exclamation-circle";}
+	if ($icon == "expand-alt"){$icon = "plus-square-o";}
+	if ($icon == "expand"){$icon = "caret-square-o-right";}
+	if ($icon == "external-link-sign"){$icon = "external-link-square";}
+	if ($icon == "eye-close"){$icon = "eye-slash";}
+	if ($icon == "eye-open"){$icon = "eye";}
+	if ($icon == "facebook-sign"){$icon = "facebook-square";}
+	if ($icon == "facetime-video"){$icon = "video-camera";}
+	if ($icon == "file-alt"){$icon = "file-o";}
+	if ($icon == "file-text-alt"){$icon = "file-text-o";}
+	if ($icon == "flag-alt"){$icon = "flag-o";}
+	if ($icon == "folder-close-alt"){$icon = "folder-o";}
+	if ($icon == "folder-close"){$icon = "folder";}
+	if ($icon == "folder-open-alt"){$icon = "folder-open-o";}
+	if ($icon == "food"){$icon = "cutlery";}
+	if ($icon == "frown"){$icon = "frown-o";}
+	if ($icon == "fullscreen"){$icon = "arrows-alt";}
+	if ($icon == "github-sign"){$icon = "github-square";}
+	if ($icon == "google-plus-sign"){$icon = "google-plus-square";}
+	if ($icon == "group"){$icon = "users";}
+	if ($icon == "h-sign"){$icon = "h-square";}
+	if ($icon == "hand-down"){$icon = "hand-o-down";}
+	if ($icon == "hand-left"){$icon = "hand-o-left";}
+	if ($icon == "hand-right"){$icon = "hand-o-right";}
+	if ($icon == "hand-up"){$icon = "hand-o-up";}
+	if ($icon == "hdd"){$icon = "hdd-o (4.0.1)";}
+	if ($icon == "heart-empty"){$icon = "heart-o";}
+	if ($icon == "hospital"){$icon = "hospital-o";}
+	if ($icon == "indent-left"){$icon = "outdent";}
+	if ($icon == "indent-right"){$icon = "indent";}
+	if ($icon == "info-sign"){$icon = "info-circle";}
+	if ($icon == "keyboard"){$icon = "keyboard-o";}
+	if ($icon == "legal"){$icon = "gavel";}
+	if ($icon == "lemon"){$icon = "lemon-o";}
+	if ($icon == "lightbulb"){$icon = "lightbulb-o";}
+	if ($icon == "linkedin-sign"){$icon = "linkedin-square";}
+	if ($icon == "meh"){$icon = "meh-o";}
+	if ($icon == "microphone-off"){$icon = "microphone-slash";}
+	if ($icon == "minus-sign-alt"){$icon = "minus-square";}
+	if ($icon == "minus-sign"){$icon = "minus-circle";}
+	if ($icon == "mobile-phone"){$icon = "mobile";}
+	if ($icon == "moon"){$icon = "moon-o";}
+	if ($icon == "move"){$icon = "arrows";}
+	if ($icon == "off"){$icon = "power-off";}
+	if ($icon == "ok-circle"){$icon = "check-circle-o";}
+	if ($icon == "ok-sign"){$icon = "check-circle";}
+	if ($icon == "ok"){$icon = "check";}
+	if ($icon == "paper-clip"){$icon = "paperclip";}
+	if ($icon == "paste"){$icon = "clipboard";}
+	if ($icon == "phone-sign"){$icon = "phone-square";}
+	if ($icon == "picture"){$icon = "picture-o";}
+	if ($icon == "pinterest-sign"){$icon = "pinterest-square";}
+	if ($icon == "play-circle"){$icon = "play-circle-o";}
+	if ($icon == "play-sign"){$icon = "play-circle";}
+	if ($icon == "plus-sign-alt"){$icon = "plus-square";}
+	if ($icon == "plus-sign"){$icon = "plus-circle";}
+	if ($icon == "pushpin"){$icon = "thumb-tack";}
+	if ($icon == "question-sign"){$icon = "question-circle";}
+	if ($icon == "remove-circle"){$icon = "times-circle-o";}
+	if ($icon == "remove-sign"){$icon = "times-circle";}
+	if ($icon == "remove"){$icon = "times";}
+	if ($icon == "reorder"){$icon = "bars";}
+	if ($icon == "resize-full"){$icon = "expand";}
+	if ($icon == "resize-horizontal"){$icon = "arrows-h";}
+	if ($icon == "resize-small"){$icon = "compress";}
+	if ($icon == "resize-vertical"){$icon = "arrows-v";}
+	if ($icon == "rss-sign"){$icon = "rss-square";}
+	if ($icon == "save"){$icon = "floppy-o";}
+	if ($icon == "screenshot"){$icon = "crosshairs";}
+	if ($icon == "share-alt"){$icon = "share";}
+	if ($icon == "share-sign"){$icon = "share-square";}
+	if ($icon == "share"){$icon = "share-square-o";}
+	if ($icon == "sign-blank"){$icon = "square";}
+	if ($icon == "signin"){$icon = "sign-in";}
+	if ($icon == "signout"){$icon = "sign-out";}
+	if ($icon == "smile"){$icon = "smile-o";}
+	if ($icon == "sort-by-alphabet-alt"){$icon = "sort-alpha-desc";}
+	if ($icon == "sort-by-alphabet"){$icon = "sort-alpha-asc";}
+	if ($icon == "sort-by-attributes-alt"){$icon = "sort-amount-desc";}
+	if ($icon == "sort-by-attributes"){$icon = "sort-amount-asc";}
+	if ($icon == "sort-by-order-alt"){$icon = "sort-numeric-desc";}
+	if ($icon == "sort-by-order"){$icon = "sort-numeric-asc";}
+	if ($icon == "sort-down"){$icon = "sort-desc";}
+	if ($icon == "sort-up"){$icon = "sort-asc";}
+	if ($icon == "stackexchange"){$icon = "stack-overflow";}
+	if ($icon == "star-empty"){$icon = "star-o";}
+	if ($icon == "star-half-empty"){$icon = "star-half-o";}
+	if ($icon == "sun"){$icon = "sun-o";}
+	if ($icon == "thumbs-down-alt"){$icon = "thumbs-o-down";}
+	if ($icon == "thumbs-up-alt"){$icon = "thumbs-o-up";}
+	if ($icon == "time"){$icon = "clock-o";}
+	if ($icon == "trash"){$icon = "trash-o";}
+	if ($icon == "tumblr-sign"){$icon = "tumblr-square";}
+	if ($icon == "twitter-sign"){$icon = "twitter-square";}
+	if ($icon == "unlink"){$icon = "chain-broken";}
+	if ($icon == "upload"){$icon = "arrow-circle-o-up";}
+	if ($icon == "upload-alt"){$icon = "upload";}
+	if ($icon == "warning-sign"){$icon = "exclamation-triangle";}
+	if ($icon == "xing-sign"){$icon = "xing-square";}
+	if ($icon == "youtube-sign"){$icon = "youtube-square";}
+	if ($icon == "zoom-in"){$icon = "search-plus";}
+	if ($icon == "zoom-out"){$icon = "search-minus";}
+	
+	return $icon;
+}
+
 /* Button */
 
 function themedy_shortcodes_button($atts, $content = null) {
@@ -17,7 +166,7 @@ function themedy_shortcodes_button($atts, $content = null) {
 		'target' => '_self'
 	), $atts));
 
-	echo $label;
+	$icon = check_old_fa($icon);
 	
 	/* Return Button */
 	$button_style = "";
@@ -161,7 +310,6 @@ add_shortcode('themedy_media', 'themedy_shortcodes_media');
 
 
 
-
 /* Toggles */
 
 function themedy_shortcodes_toggle($atts, $content = null) {
@@ -174,6 +322,9 @@ function themedy_shortcodes_toggle($atts, $content = null) {
 		'accordion' => '',
 		'onload' => 'closed'
 	), $atts));
+
+	$icon = check_old_fa($icon);
+
 	if($onload == "open") { $active_class = "themedy-shortcode-toggle-active"; } else { $active_class = ""; }
 	if($icon) { $icon_code = '<i class="fa '.$font_awesome_att.' fa-'.$icon.'"></i>'; } else { $icon_code = ''; }
 	if($accordion == 1) {
@@ -226,6 +377,7 @@ add_shortcode('themedy_tab', 'themedy_shortcodes_tab');
 
 
 /* Map */
+
 global $google_map_script_code;
 function themedy_shortcodes_map($atts, $content = null) {
 	global $google_map_script_code;
@@ -300,6 +452,7 @@ add_shortcode('themedy_map', 'themedy_shortcodes_map');
 
 
 /* Add Google Map Code to Footer */
+
 function themedy_add_google_map_code() { 
 	global $google_map_script_code;
 	if(isset($google_map_script_code)) {
@@ -310,6 +463,8 @@ function themedy_add_google_map_code() {
 	
 }
 add_action('wp_footer', 'themedy_add_google_map_code');
+
+
 
 /* Alert Box */
 
@@ -323,7 +478,8 @@ function themedy_shortcodes_alertbox($atts, $content = null) {
 		'custom_colour' => ''
 	), $atts));
 	
-	
+	$icon = check_old_fa($icon);
+
 	$alertbox_style = "";
 	if($custom_colour) {
 		$alertbox_style = ' style="background-color: '.$custom_colour.'"';
@@ -334,6 +490,7 @@ function themedy_shortcodes_alertbox($atts, $content = null) {
 
 }
 add_shortcode('themedy_alertbox', 'themedy_shortcodes_alertbox');
+
 
 
 /* Pull Quote Left */
@@ -357,6 +514,7 @@ function themedy_shortcodes_pullleft($atts, $content = null) {
 
 }
 add_shortcode('themedy_pullleft', 'themedy_shortcodes_pullleft');
+
 
 
 /* Pull Quote Right */

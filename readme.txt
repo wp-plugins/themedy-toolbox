@@ -3,7 +3,7 @@ Contributors: themedy, mahodder, matthodder
 Tags: shortcodes, themedy, genesis, thesis
 Requires at least: 3.9
 Tested up to: 4.1.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ Please note that this plugin will work outside our <a href="http://themedy.com">
 1. Here's a screenshot of it in action
 
 == Changelog ==
+
+= 1.0.6 =
+* Add backwards compatibility for old Font Awesome icons
 
 = 1.0.5 =
 * Load YouTube / Vimeo via HTTP / HTTPS depending on users site automatically.
