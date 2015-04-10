@@ -1,9 +1,9 @@
 === Themedy Toolbox ===
 Contributors: themedy, mahodder, matthodder
 Tags: shortcodes, themedy, genesis, thesis
-Requires at least: 3.9
+Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ Please note that this plugin will work outside our <a href="http://themedy.com">
 1. Here's a screenshot of it in action
 
 == Changelog ==
+
+= 1.0.7 =
+* Fix plugin header error
 
 = 1.0.6 =
 * Add backwards compatibility for old Font Awesome icons

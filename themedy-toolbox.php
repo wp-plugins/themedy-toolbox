@@ -3,7 +3,7 @@
 Plugin Name: Themedy Toolbox
 Plugin URI: http://themedy.com
 Description: Shortcodes and tools to extend your Themedy site even further.
-Version: 1.0.6
+Version: 1.0.7
 Author: Themedy
 Author URI: http://themedy.com
 */

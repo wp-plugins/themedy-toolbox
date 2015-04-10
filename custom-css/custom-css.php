@@ -1,21 +1,10 @@
 <?php
-/*
- * Plugin Name: JP Custom CSS
- * Plugin URI: http://wordpress.org/plugins/jp-custom-css/
- * Description: Customize your site’s CSS without modifying your theme.
- * Author: JP Bot
- * Version: 3.4.1
- * Text Domain: jetpack
- * Domain Path: /languages/
- * License: GPL2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- */
-
 /**
  * Module Name: Custom CSS
  * Module Description: Customize your site’s CSS without modifying your theme.
  * Sort Order: 2
  * First Introduced: 1.7
+ * Version: 3.4.1
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Appearance
