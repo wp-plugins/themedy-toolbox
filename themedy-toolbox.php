@@ -3,7 +3,7 @@
 Plugin Name: Themedy Toolbox
 Plugin URI: http://themedy.com
 Description: Shortcodes and tools to extend your Themedy site even further.
-Version: 1.0.7
+Version: 1.0.8
 Author: Themedy
 Author URI: http://themedy.com
 */
@@ -32,11 +32,6 @@ function themedy_shortcodes_add_scripts() {
 		wp_register_script('themedy_shortcodes_js', $ja_themedy_shortcodes_directory.'includes/shortcodes.js', 'jquery');
 		wp_enqueue_script('themedy_shortcodes_js');
 		
-	} else {
-		
-		wp_enqueue_style( 'wp-color-picker' );
-	    wp_enqueue_script( 'wp-color-picker' );
-	    		
 	}
 	
 	/* Font Awesome */
@@ -52,12 +47,17 @@ function toolbox_admin_specific_enqueue($hook_suffix) {
 	$ja_themedy_shortcodes_directory = isset($ja_themedy_shortcodes_directory);
 
    if( 'post.php' == $hook_suffix || 'post-new.php' == $hook_suffix ) {
-	wp_enqueue_script('themedy-editor-plugin', plugin_dir_url( __FILE__ ) . 'includes/tinymce_button.js');
-	 /* Fix wp-content directory renamed issue */
-	wp_localize_script('themedy-editor-plugin', 'themedy_editor_plugin_vars', array(
-			'tbicon' => __(plugin_dir_url( __FILE__ ) . 'images/toolbar-icon.png'), 'themedy'));
-	wp_localize_script('themedy-editor-plugin', 'themedy_editor_plugin_wp_content', array(
-			'tbwpcontent' => __(plugin_dir_url( __FILE__ )), 'themedy'));
+
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_script('themedy-editor-plugin', plugin_dir_url( __FILE__ ) . 'includes/tinymce_button.js');
+		
+		/* Fix wp-content directory renamed issue */
+		wp_localize_script('themedy-editor-plugin', 'themedy_editor_plugin_vars', array(
+				'tbicon' => __(plugin_dir_url( __FILE__ ) . 'images/toolbar-icon.png'), 'themedy'));
+
+		wp_localize_script('themedy-editor-plugin', 'themedy_editor_plugin_wp_content', array(
+				'tbwpcontent' => __(plugin_dir_url( __FILE__ )), 'themedy'));
   }
 }
 add_action( 'admin_enqueue_scripts', 'toolbox_admin_specific_enqueue' );
